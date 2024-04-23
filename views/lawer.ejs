@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans+Mono:wght@700&family=Spline+Sans:wght@500&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://kit.fontawesome.com/26a692bc87.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <title> Cases </title>
+    <style>
+        .navbar-brand {
+            margin-left: 20px;
+            margin-top: 2px;
+        }
+
+        .nav-item {
+            margin: 20px;
+            margin-top: 2px;
+        }
+
+        .nav-item a {
+            font-size: 20px;
+            line-height: 1.8125rem;
+            letter-spacing: 0.009375rem;
+            font-weight: 500;
+            font-family: 'Poppins'
+        }
+
+        .footer {
+            position: relative;
+            bottom: -45vh;
+
+        }
+
+        .bg {
+            padding: 2%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 1.5%;
+            margin-bottom: 1.5%;
+            border: solid black;
+            border-radius: 20px;
+            width: 70%;
+        }
+
+        span {
+            margin: 2%;
+            color: black;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        i {
+            margin-right: 10px;
+        }
+
+        .modal-title {
+            font-family: 'Poppins';
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        label {
+            margin-left: 10px;
+            font-family: 'Poppins';
+            color: grey;
+            font-size: 10px;
+            text-align: left;
+            justify-self: left;
+        }
+
+        .modal input {
+            font-family: 'Poppins';
+            background: rgba(255, 255, 255, 0.3);
+            height: 40px;
+            width: 100%;
+            line-height: 40px;
+            border-radius: 20px;
+            padding: 0px 20px;
+            margin: 0;
+            margin-bottom: 10px;
+            border: none;
+            color: white;
+        }
+
+        .btn {
+            background-color: white;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 40px;
+            border: none;
+            font-family: 'Poppins';
+            font-weight: 500;
+            margin: 10px 0px;
+            box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+            transition-duration: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background-color: black;
+        }
+
+        .modal .row {
+            border: 1px solid white;
+            width: 400px;
+            height: auto;
+            background-color: black;
+            color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .login {
+            backdrop-filter: brightness(20%);
+        }
+
+        .form {
+            box-sizing: border-box;
+            width: 100%;
+            height: 80%;
+            /* backdrop-filter: brightness(40%); */
+            display: flex;
+        }
+
+        @media only screen and (min-width:600px) and (max-width:670px) {
+            .card {
+                width: 275px;
+            }
+        }
+
+        @media only screen and (min-width:900px) and (max-width:970px) {
+            .card {
+                width: 275px;
+            }
+        }
+
+        @media only screen and (min-width:1200px) and (max-width:1270px) {
+            .card {
+                width: 275px;
+            }
+        }
+
+        @media only screen and (min-width:1500px) and (max-width:1570px) {
+            .card {
+                width: 275px;
+            }
+        }
+
+        .btne,
+        .btnd {
+            width: 100px;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('partials/judgeNavBar.ejs') -%>
+        <div class="bg">
+            <span><i class="fa-solid fa-magnifying-glass"></i> <input placeholder="Search By CIN" type="number"
+                    id="searchByCIN" style="border:0;"> </span>
+        </div>
+        <div class="bg">
+            <span><i class="fa-solid fa-magnifying-glass"></i> <input placeholder="Search By Keyword"
+                    id="searchByKeyword" style="border:0;"> </span>
+        </div>
+
+        <div class="row"
+            style="padding-left: 30px; padding-right:30px ; width: 70%; margin-left: auto; margin-right: auto; font-family: 'Poppins';">
+            <table id="list" class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">CIN</th>
+                        <th scope="col">Case Status</th>
+                        <th scope="col">Title of the case</th>
+                        <th scope="col">Filing Date of case</th>
+                        <th scope="col">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% for(let i=0;i<cur.length;i++){ %>
+                        <tr>
+                            <th scope="row">
+                                <%= cur[i].CIN %>
+                            </th>
+                            <% if(cur[i].closed) { %>
+                                <td> Past </td>
+                                <% } %>
+                                    <% var today=new Date(); %>
+                                        <% if(cur[i].closed==false && cur[i].dateOfHearing.getDate()==(today).getDate()
+                                            && cur[i].dateOfHearing.getMonth()==(today).getMonth() &&
+                                            cur[i].dateOfHearing.getYear()==(today).getYear()) { %>
+                                            <td> Active </td>
+                                            <% } %>
+                                                <% if(cur[i].closed==false &&
+                                                    !(cur[i].dateOfHearing.getDate()==(today).getDate() &&
+                                                    cur[i].dateOfHearing.getMonth()==(today).getMonth() &&
+                                                    cur[i].dateOfHearing.getYear()==(today).getYear())) { %>
+                                                    <td>Upcoming</td>
+                                                    <% } %>
+                                                        <td>
+                                                            <%= cur[i].caseTitle %>
+                                                        </td>
+                                                        <td>
+                                                            <%= cur[i].committedDate %>
+                                                        </td>
+                                                        <td>
+                                                            <form action="/case/<%= cur[i].id %>" method="GET">
+                                                                <button type="submit" class="btn btn-primary">View
+                                                                    More<i
+                                                                        class="fa-solid fa-angles-right"></i></button>
+                                                            </form>
+                                                        </td>
+                        </tr>
+                        <% } %>
+
+                </tbody>
+            </table>
+        </div>
+
+        <%- include('partials/modals.ejs') -%>
+
+
+            <%- include('partials/footer.ejs') -%>
+
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                    crossorigin="anonymous"></script>
+
+
+                <!-- <%# console.log(cur) %> -->
+
+                <script>
+                    const listOfCases = JSON.parse('<%- JSON.stringify(cur)%>');
+                </script>
+
+                <script>
+                    var root = document.getElementById('list');
+
+                    const searchBar = document.getElementById('searchByKeyword');
+                    const searchBar2 = document.getElementById('searchByCIN');
+
+
+                    searchBar.addEventListener('keyup', (e) => {
+                        const searchString = e.target.value.toLowerCase();
+                        const searchResults = listOfCases.filter((character) => {
+                            return (
+                                character.caseTitle.toLowerCase().includes(searchString)
+                            );
+                        });
+                        console.log(searchResults);
+                        displayCharacters(searchResults);
+                    })
+
+                    searchBar2.addEventListener('keyup', (e) => {
+                        const searchString = e.target.value.toLowerCase();
+                        const searchResults = listOfCases.filter((character) => {
+                            return (
+                                character.CIN == parseInt(searchString)
+                            );
+                        });
+                        console.log(searchResults);
+                        displayCharacters(searchResults);
+                    })
+
+                    const displayCharacters = (characters) => {
+                        if (characters.length === 0) {
+                            root.innerHTML = `<div class="py-3"><h3>No results have been found &#9785;</h3>
+        </div>`;
+                            return 0;
+                        };
+                        var today = new Date();
+                        const htmlString = characters
+                            .map((character) => {
+                                console.log(1);
+                                var u = character;
+                                return `<tr>
+                                        <th scope="row"> ${u.CIN} </th>
+                                        <td> ${u.closed ? "Past" : "Live"} </td>
+                                        <td> 
+                                            ${u.caseTitle}
+                                        </td>
+                                        <td> ${u.committedDate.substr(0, 10)} </td>
+                                        <td><a href="/case/${u._id}" class="btn btn-primary">View More<i class="fa-solid fa-angles-right"></i></a>
+                                        </td>
+                                      </tr>`
+                            })
+                            .join('');
+
+                        root.innerHTML = `<div class="row" style="padding-left: 30px; padding-right:30px ; width: 70%; margin-left: auto; margin-right: auto;" >
+                        <table id="list" class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">CIN</th>
+                                <th scope="col">Case Status</th>
+                                <th scope="col">Title of the case</th>
+                                <th scope="col">Filing Date of case</th>
+                                <th scope="col">Details</th>
+                              </tr>
+                            </thead>
+                            <tbody>`+ htmlString + ` </tbody>
+                        </table>
+                    </div>` ;
+                    };
+
+                </script>
+
+</body>
+
+</html>

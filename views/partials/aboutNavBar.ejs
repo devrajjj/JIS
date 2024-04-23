@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light" style=" background: #193058;">
+    <a class="navbar-brand" href="/" ><img src="logo.png" alt="logo" style="width: 30%; border-radius: 50%;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ms-auto">
+            <% if(current!="") { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/signout" style="color: white;">Logout</a>
+            </li>
+            <% } %>
+            <% if(current=="") { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/signin" style="color: white;">SignIn</a>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>

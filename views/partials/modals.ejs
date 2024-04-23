@@ -1,0 +1,58 @@
+<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content row">
+      <div class="modal-header">
+        <h1 class="modal-title px-3" id="staticBackdropLabel">Add Judge</h1>
+        <button type="button" class="btn-close white" data-bs-dismiss="modal" aria-label="Close"
+          style="color: white;"></button>
+      </div>
+      <div class="modal-body login">
+        <form action="/addjudge" method="POST">
+          <div class="modal-foote px-3" style="display: block; border-top: 0;">
+            <label>Email of Judge</label>
+            <input type="email" id="email" name="emailJudge">
+            <br>
+            <label>Username of Judge</label>
+            <input type="text" id="name" name="userNameJudge">
+            <br>
+            <label>Password of Judge</label>
+            <input type="password" id="password" name="passwordJudge">
+            <br>
+            <button type="submit" class="btn" data-bs-dismiss="modal">Add Judge</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content row">
+      <div class="modal-header">
+        <h1 class="modal-title px-3" id="staticBackdropLabel">Add Lawyer</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body login">
+        <form action="/addlawer" method="POST">
+          <div class="modal-foote px-3" style="display: block; border-top: 0;">
+            <label>Email of Lawyer</label>
+            <input type="email" id="email" name="emailLawyer">
+            <br>
+            <label>Name of Lawyer</label>
+            <input type="text" id="name" name="userNameLawyer">
+            <br>
+            <label>Password of Lawyer</label>
+            <input type="password" id="password" name="passwordLawyer">
+            <br>
+            <button type="submit" class="btn" data-bs-dismiss="modal">Add Lawyer</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

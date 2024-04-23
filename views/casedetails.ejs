@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans+Mono:wght@700&family=Spline+Sans:wght@500&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/04a114867e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <title>Case details</title>
+    <style>
+        .navbar-brand {
+            margin-left: 20px;
+            margin-top: 2px;
+        }
+
+        .nav-item {
+            margin: 20px;
+            margin-top: 2px;
+        }
+
+        .nav-item a {
+            font-size: 20px;
+            line-height: 1.8125rem;
+            letter-spacing: 0.009375rem;
+            font-weight: 500;
+            font-family: "Merriweather", serif
+        }
+
+        .footer {
+            background-image: linear-gradient(to right, #EE6D98, #8A5EBF);
+            position: relative;
+            top: 30vh;
+
+        }
+
+        h1 {
+            font-family: 'Poppins';
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            background-color: rgba(129, 125, 125, 0.137);
+        }
+
+        p {
+            padding: 10px;
+            border: none;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        label {
+            width: 100%;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            align-self: center;
+            margin-left: 20px;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: center;
+        }
+
+        .heading {
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <form action="https://formsubmit.co/el/hilolu" method="POST"
+    style="padding: 10px; "> -->
+
+
+
+    <div class="caseDetials">
+        <div
+            style="background-color: black; padding:2%;  margin-top: 60px; margin-left: auto;margin-right: auto; border-radius: 30px; width: 80%; ">
+            <div class="heading">
+                <h1 style="color: white;">
+                    <%= currCase.caseTitle %>
+                </h1>
+            </div>
+            <div>
+                <label>CIN :
+                    <%= currCase.CIN %>
+                </label>
+                <label>Case Title :
+                    <%= currCase.caseTitle %>
+                </label>
+                <label>Defendant's Name :
+                    <%= currCase.defendantName %>
+                </label>
+                <label>Defendant's Address :
+                    <%= currCase.defendantAddress %>
+                </label>
+                <label>Crime Type :
+                    <%= currCase.crimeType %>
+                </label>
+                <label>Committed date of case :
+                    <%= currCase.committedDate %>
+                </label>
+                <label>Location of Committed Case :
+                    <%= currCase.committedLocation %>
+                </label>
+                <label>Name of arresting officer :
+                    <%= currCase.arrestingOfficer %>
+                </label>
+                <label>Name of Presiding Judge :
+                    <%= currCase.presidingJudge %>
+                </label>
+                <label>Name of Public Prosecutor :
+                    <%= currCase.publicProsecutor %>
+                </label>
+                <label>Assigned date of intial hearing :
+                    <%= currCase.dateOfHearing %>
+                </label>
+            </div>
+            <% for(let i=0;i<currCase.sessions.length;i++) { %>
+                <div
+                    style="background-color: white; padding:2%;  margin: 10px; margin-left: auto;margin-right: auto; border-radius: 10px;border: dashed purple; width: 80%; ">
+                    <div class="heading">
+                        <h1 style="color: purple;">Hearing of case <%= i+1 %>
+                        </h1>
+                    </div>
+
+                    <label>Attending Judge Name</label>
+                    <p>
+                        <%= currCase.sessions[i].attendingJudge %>
+                    </p>
+                    <label>Hearing Summary</label>
+                    <p>
+                        <%= currCase.sessions[i].summary %>
+                    </p>
+                    <label>Next Date of Hearing</label>
+                    <p>
+                        <%= currCase.sessions[i].nextHearingDate %>
+                    </p>
+                    <% if(currCase.closed==true && i==currCase.sessions.length-1) {%>
+                        <label>Case Closed</label>
+                        <% } %>
+                </div>
+
+                <% } %>
+
+        </div>
+
+        <% if(true) { %>
+            <% if(user.isRegistrer) { %>
+
+                <div class="row"
+                    style="background-color: white; padding:2%; margin: 10px;margin-left: auto;margin-right: auto;  border-radius: 10px;border: dashed purple; width: 55%; ">
+                    <div class="form">
+                        <!-- <label>Date of Hearing</label> -->
+                        <br>
+                        <!-- <input type="date" name="hearingDate" id="date"> -->
+                        <form action="/case/<%= currCase.id %>/addSession" method="post">
+                            <label>Name of attending judge</label>
+                            <br>
+                            <input type="text" name="attendingJudge" id="text" placeholder="Attending Judge">
+                            <br>
+                            <label>Summary of the Hearing</label>
+                            <br>
+                            <textarea id="subject" name="summary" rows="3" cols="25"
+                                placeholder="Summary of the hearing"></textarea>
+                            <br>
+                            <label>Next date of Hearing</label>
+                            <br>
+                            <input type="date" name="nextHearingDate" id="date">
+                            <br>
+
+                            <div class="btns" style="display: flex; justify-content: space-between; margin: 10px;">
+                                <button type="submit" id="btn" class="btn "
+                                    style="background-image: linear-gradient(to right,#EE6D98,#8A5EBF);color: white;"
+                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    Add
+                                </button>
+                            </div>
+                        </form>
+                        <form action="/case/<%= currCase.id %>/closeCase" method="POST">
+                            <button type="submit" id="btn" class="btn "
+                                style="background-image: linear-gradient(to right,#EE6D98,#8A5EBF);color: white;"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                Close the Case
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <% } %>
+                    <% } %>
+
+                        <%- include('partials/modals.ejs') -%>
+
+
+                            <%- include('partials/footer.ejs') -%>
+
+                                <!-- Payment Overlay -->
+                                <% if(!user.isRegistrer){ %>
+                                    <div id="paymentOverlay"
+                                        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); z-index: 999;">
+                                        <div
+                                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px;">
+                                            <p>Would you like to proceed with payment of ₹500?</p>
+                                            <button id="confirmPayment" class="btn btn-primary">Yes</button>
+                                            <button id="cancelPayment" class="btn btn-secondary">Cancel</button>
+                                        </div>
+                                    </div>
+                                    <% } %>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // When the page loads, show the payment overlay
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("paymentOverlay").style.display = "block";
+        });
+
+        // Event listener for "Yes" button
+        document.getElementById("confirmPayment").addEventListener("click", function () {
+            document.getElementById("paymentOverlay").style.display = "none"; // Hide the payment overlay
+            document.querySelector(".paymentForm").style.display = "block"; // Show the payment form
+        });
+
+        // Event listener for "Cancel" button
+        document.getElementById("cancelPayment").addEventListener("click", function () {
+            document.getElementById("paymentOverlay").style.display = "none"; // Hide the payment overlay
+        });
+    </script>
+
+
+</body>
+
+</html>

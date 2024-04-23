@@ -1,0 +1,19 @@
+<% if(current.isRegistrer) { %>
+
+      <%- include('partials/registrarNavBar.ejs') -%>
+ 
+    <% } %>
+
+    <% if(current.isLawer) { %>
+     
+       <%- include('partials/lawerNavBar.ejs') -%>
+
+    <% } %>
+
+    <% if(current.isJudge) { %>
+
+        <%- include('partials/judgeNavBar.ejs') -%>
+
+    <% } %>
+
+    currCase.closed==false && isRegistrer==true
